@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="44dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/telefoon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/adres"
+        android:layout_below="@+id/adres"
+        android:ems="10"
+        android:hint="Telefoon"
+        android:inputType="phone" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/telefoon"
+        android:layout_below="@+id/telefoon"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/adres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/naam"
+        android:layout_below="@+id/naam"
+        android:ems="10"
+        android:hint="Adres"
+        android:inputType="textPostalAddress" />
+
+    <EditText
+        android:id="@+id/naam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="54dp"
+        android:ems="10"
+        android:hint="Naam"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/annuleren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="14dp"
+        android:text="Annuleren" />
+
+    <Button
+        android:id="@+id/bevestigen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/annuleren"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="14dp"
+        android:text="Bevestigen" />
+
+</RelativeLayout>

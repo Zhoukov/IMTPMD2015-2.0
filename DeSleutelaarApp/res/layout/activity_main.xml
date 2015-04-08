@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.marioco.MainActivity"
+    tools:ignore="MergeRootFrame"
+    android:background="#FFFFFF">
+
+ <TextView 
+     android:id="@+id/text"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_below="@+id/services"
+     android:text="" />
+    
+  <Button
+        android:id="@+id/selecteren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="14dp"
+        android:text="Meer Informatie..." />
+  
+  <ImageView
+      android:id="@+id/imageView1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginLeft="15dp"
+      android:layout_marginTop="15dp"
+      android:src="@drawable/sleutellogo" />
+
+  <TextView
+      android:id="@+id/textView1"
+      android:layout_width="120dp"
+      android:layout_height="wrap_content"
+      android:layout_alignTop="@+id/imageView1"
+      android:layout_marginLeft="15dp"
+      android:layout_toRightOf="@+id/imageView1"
+      android:text="Slotenbedrijf De Sleutelaar is een slotenbedrijf dat sloten maakt voor de particuliere en commerciële sector." />
+
+  <Spinner
+      android:id="@+id/services"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_below="@+id/imageView1"
+      android:background="@android:drawable/btn_dropdown"
+      android:spinnerMode="dropdown"
+      android:textColor="#000000" />
+
+  <EditText
+      android:id="@+id/ipadres"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/selecteren"
+      android:layout_alignParentLeft="true"
+      android:layout_marginTop="15dp"
+      android:ems="10"
+      android:hint="IP-Adres"
+      android:text="145.101.85.42" >
+
+      <requestFocus />
+  </EditText>
+
+</RelativeLayout>
