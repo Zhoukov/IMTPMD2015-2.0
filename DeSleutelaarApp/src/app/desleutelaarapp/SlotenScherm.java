@@ -21,7 +21,7 @@ public class SlotenScherm extends Activity implements OnClickListener {
 
 	Button bevestigen;
 	Button annuleren;
-	String gekozenservice;
+	String gekozenslot;
 	TextView titel;
 	TextView info;
 	private String detailInfo;
@@ -41,17 +41,17 @@ public class SlotenScherm extends Activity implements OnClickListener {
 		annuleren.setOnClickListener(this);
 
 		Intent hoofdscherm = getIntent();
-		gekozenservice = hoofdscherm.getStringExtra("naam");
+		gekozenslot = hoofdscherm.getStringExtra("naam");
 
 		TextView titel = (TextView) findViewById(R.id.textView2);
 		this.titel = titel;
-		titel.setText(gekozenservice);
+		titel.setText(gekozenslot);
 
 		// System.out.println(gekozenservice);
 
 		JSONObject beknoptjObject = new JSONObject();
 		try {
-			beknoptjObject.put("informatie", gekozenservice);
+			beknoptjObject.put("informatie", gekozenslot);
 			try {
 				try {
 					detailInfo = new ServerCommunicator(ip, port,
@@ -92,7 +92,7 @@ public class SlotenScherm extends Activity implements OnClickListener {
 		case R.id.bevestigen:
 
 			Intent i = new Intent(this, AanvraagScherm.class);
-			i.putExtra("gekozen", (String) gekozenservice);
+			i.putExtra("gekozen", (String) gekozenslot);
 			startActivity(i);
 
 			finish();

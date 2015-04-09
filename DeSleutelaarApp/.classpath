@@ -5,5 +5,8 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/DeSleutelaarServer"/>
+	<classpathentry kind="lib" path="C:/Users/Martijn/Desktop/java-json.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Martijn/Desktop/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

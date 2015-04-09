@@ -1,27 +1,20 @@
 package app.desleutelaarapp;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
-
 import app.desleutelaarapp.Preferences;
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -31,6 +24,10 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import app.desleutelaarapp.Preferences;
+import server.SlotData;
+import server.Server;
 
 public class MainActivity extends Activity implements OnItemSelectedListener,
 		OnClickListener {
@@ -46,42 +43,43 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 	public static String ip = "94.211.183.172";
 	public static int port = 4444;
 	public String informatiebeknopt = null;
-	public static String serviceNaam;
+	public static String slotNaam;
 	Button button1;
 	Button button2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.main_activity);
 
 		list = new ArrayList<String>();
 		JSONObject jsonObject = new JSONObject();
 		try {
-			jsonObject.put("servicelijst", "");
+			jsonObject.put("slotenlijst", "");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		String response = null;
 		try {
-			try {
+			// try {
 
-				response = new ServerCommunicator(ip, port,
-						jsonObject.toString()).execute().get();
+			response = new ServerCommunicator(ip, port, jsonObject.toString())
+					.execute().get();
 
-			} catch (ExecutionException e) {
-				e.printStackTrace();
-			}
-		} catch (InterruptedException e1) {
-			e1.printStackTrace();
+		} catch (Exception e) {
+			Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG)
+					.show();
+			e.printStackTrace();
 		}
+		// } catch (InterruptedException e1) {
+		// e1.printStackTrace();
+		// }
 		if (response == null) {
 
-			Toast.makeText(MainActivity.this,
-					"Verbinding met de server niet mogelijk.",
-					Toast.LENGTH_LONG).show();
-			
-			
+			// Toast.makeText(MainActivity.this,
+			// "Verbinding met de server niet mogelijk.",
+			// Toast.LENGTH_LONG).show();
+
 		} else {
 
 			String jsonFix = response.replace("null", "");
@@ -152,9 +150,6 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 
 		button1 = (Button) findViewById(R.id.selecteren);
 		button1.setOnClickListener(this);
-//		
-//		button2 = 
-//		button2 =
 
 		if (Preferences.getInstance(this) == null)
 			System.out.println("no instance of preferences");
@@ -199,7 +194,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		try {
 			beknopteinfo.setText(infoList.get(position).getString(
 					"informatiebeknopt"));
-			serviceNaam = list.get(position);
+			slotNaam = list.get(position);
 
 		} catch (Exception e) {
 
@@ -209,7 +204,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 
 	public void onClick(View v) {
 		Intent i = new Intent(MainActivity.this, SlotenScherm.class);
-		i.putExtra("naam", serviceNaam.toString());
+		i.putExtra("naam", slotNaam.toString());
 		startActivity(i);
 	}
 

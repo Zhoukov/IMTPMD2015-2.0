@@ -10,7 +10,7 @@ import android.content.SharedPreferences.Editor;
 public class Preferences {
 
 	private static Preferences _instance;
-	private static final String PREFS_NAME = "MarioCo";
+	private static final String PREFS_NAME = "Sleutelaar";
 	private SharedPreferences settings;
 	private Editor editor;
 	public static String[] mainViewPreferences = { "dropDown" };

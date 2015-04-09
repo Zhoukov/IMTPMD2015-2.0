@@ -37,7 +37,7 @@
 
 <!-- Service Activity -->
         <activity
-            android:name=".ServiceScherm"
+            android:name=".SlotenScherm"
             android:label="@string/app_name" >
         </activity>
 

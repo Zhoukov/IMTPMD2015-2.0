@@ -125,7 +125,7 @@ public class AanvraagScherm extends Activity implements OnClickListener {
 	        JSONArray bestelArray = new JSONArray();
 
 	        try {
-	            service.put("servicenaam", gekozenservice.toString());
+	            service.put("slotnaam", gekozenservice.toString());
 	            gegevens.put("kopernaam", naam);
 	            gegevens.put("koperadres", adres);
 	            gegevens.put("kopertelnr", telefoon);

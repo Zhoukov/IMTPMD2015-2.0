@@ -10,8 +10,6 @@ import android.os.Handler;
 
 public class SplashScreen extends Activity {
 
-	// private String ip = "145.101.81.212";
-	// private int port = 4444;
 	private ServerCommunicator serverCommunicator;
 	private static int SPLASH_TIME_OUT = 3000;
 
