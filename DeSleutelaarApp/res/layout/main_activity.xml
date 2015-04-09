@@ -8,11 +8,13 @@
     tools:ignore="MergeRootFrame"
     android:background="#FFFFFF">
 
- <TextView 
+ <TextView
      android:id="@+id/text"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:layout_below="@+id/services"
+     android:layout_marginLeft="20dp"
+     android:layout_marginTop="10dp"
      android:text="" />
     
   <Button
@@ -32,7 +34,7 @@
       android:layout_alignParentLeft="true"
       android:layout_alignParentTop="true"
       android:layout_marginLeft="15dp"
-      android:layout_marginTop="15dp"
+      android:layout_marginTop="0dp"
       android:src="@drawable/sleutellogo" />
 
   <TextView
@@ -41,6 +43,7 @@
       android:layout_height="wrap_content"
       android:layout_alignTop="@+id/imageView1"
       android:layout_marginLeft="15dp"
+      android:layout_marginTop="10dp"
       android:layout_toRightOf="@+id/imageView1"
       android:text="Slotenbedrijf De Sleutelaar is een slotenbedrijf dat sloten maakt voor de particuliere en commerciële sector." />
 
@@ -50,6 +53,7 @@
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_below="@+id/imageView1"
+      android:layout_marginTop="10dp"
       android:background="@android:drawable/btn_dropdown"
       android:spinnerMode="dropdown"
       android:textColor="#000000" />
