@@ -23,8 +23,7 @@
         android:layout_below="@+id/textView1"
         android:layout_marginTop="60dp"
         android:ems="10"
-        android:hint="IP-Adres"
-        android:text="92.211.183.172" />
+        android:hint="92.211.183.172" />
 
     <Button
         android:id="@+id/knop"

@@ -31,6 +31,9 @@ public class ServerCommunicator extends AsyncTask<Void, Void, String> {
         this.message = message;
         this.ip = ip;
         this.port = port;
+        
+        System.out.println("Server Communicator IP: " + ip);
+        
     }
 
 

@@ -101,6 +101,7 @@ public class AanvraagScherm extends Activity implements OnClickListener {
 			break;
 		case R.id.annuleren:
 			Intent j = new Intent(this, MainActivity.class);
+			j.putExtra("ipadres", ip);
 			startActivity(j);
 
 			finish();

@@ -39,7 +39,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 	static ArrayList<JSONObject> infoList;
 	static MainActivity activity;
 	TextView serviceinfo;
-	/*public static*/ String ip; /*= "94.211.183.172";*/
+	/* public static */String ip; /* "94.211.183.172"; */
 	public static int port = 4444;
 	public String informatiebeknopt = null;
 	public static String slotNaam;
@@ -52,12 +52,14 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		setContentView(R.layout.main_activity);
 
 		System.out.println("Hoofdscherm gestart");
-		
-//		Intent mainscherm = getIntent();
-//		ip = mainscherm.getStringExtra("ipadres");
-		
+
+		Intent mainscherm = getIntent();
+		ip = mainscherm.getStringExtra("ipadres");
+
+		this.ip = ip;
+
 		System.out.println(ip);
-		
+
 		list = new ArrayList<String>();
 		JSONObject jsonObject = new JSONObject();
 		try {
@@ -65,7 +67,10 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		
 		String response = null;
+		System.out.println("response");
+		
 		try {
 			// try {
 
@@ -82,9 +87,9 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		// }
 		if (response == null) {
 
-			// Toast.makeText(MainActivity.this,
-			// "Verbinding met de server niet mogelijk.",
-			// Toast.LENGTH_LONG).show();
+			Toast.makeText(MainActivity.this,
+					"Verbinding met de server niet mogelijk.",
+					Toast.LENGTH_LONG).show();
 
 		} else {
 
