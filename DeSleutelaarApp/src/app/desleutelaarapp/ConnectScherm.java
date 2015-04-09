@@ -35,6 +35,7 @@ public class ConnectScherm extends Activity implements OnClickListener {
 		System.out.println(ip);
 
 		Intent i = new Intent(ConnectScherm.this, MainActivity.class);
+		// Het IP-adres wordt meegegeven met de intent, zodat deze gebruikt kan worden in de mainactivity
 		i.putExtra("ipadres", ip);
 		startActivity(i);
 	}

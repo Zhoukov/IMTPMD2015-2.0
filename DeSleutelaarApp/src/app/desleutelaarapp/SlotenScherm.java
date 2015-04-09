@@ -43,12 +43,13 @@ public class SlotenScherm extends Activity implements OnClickListener {
 		Intent hoofdscherm = getIntent();
 		gekozenslot = hoofdscherm.getStringExtra("naam");
 
+		//Het in de mainactivity gekozen slot wordt weergegeven in de titel
 		TextView titel = (TextView) findViewById(R.id.textView2);
 		this.titel = titel;
 		titel.setText(gekozenslot);
 
 		// System.out.println(gekozenservice);
-
+		// De volledige informatie wordt opgehaald door middel van het gekozen slot in een JSONObject mee te geven
 		JSONObject beknoptjObject = new JSONObject();
 		try {
 			beknoptjObject.put("informatie", gekozenslot);
@@ -72,6 +73,7 @@ public class SlotenScherm extends Activity implements OnClickListener {
 			e.printStackTrace();
 		}
 
+		// De juiste informatie die bij het slot hoort wordt in en textview gezet.
 		TextView info = (TextView) findViewById(R.id.textView1);
 		this.info = info;
 		info.setText(detailInfo);
@@ -88,6 +90,7 @@ public class SlotenScherm extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 
+		// Men kan of door naar bestellen of terug gaan naar het hoofdscherm.
 		switch (v.getId()) {
 		case R.id.bevestigen:
 
@@ -99,6 +102,7 @@ public class SlotenScherm extends Activity implements OnClickListener {
 			break;
 		case R.id.annuleren:
 			Intent j = new Intent(this, MainActivity.class);
+			j.putExtra("ipadres", ip);
 			startActivity(j);
 
 			finish();

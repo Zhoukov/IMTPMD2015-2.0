@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		setContentView(R.layout.main_activity);
 
 		System.out.println("Hoofdscherm gestart");
-
+		// Het IP wordt uit de intent gehaald zodat deze gebruikt kan worden.
 		Intent mainscherm = getIntent();
 		ip = mainscherm.getStringExtra("ipadres");
 
@@ -60,6 +60,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 
 		System.out.println(ip);
 
+		//Object sturen naar de server voor de slotenlijst
 		list = new ArrayList<String>();
 		JSONObject jsonObject = new JSONObject();
 		try {
@@ -92,7 +93,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 					Toast.LENGTH_LONG).show();
 
 		} else {
-
+			// Als er een response is van de server zal de spinner gevuld worden met een array
 			String jsonFix = response.replace("null", "");
 
 			JSONArray JArray = null;
@@ -120,7 +121,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 				list.add(value);
 
 			}
-
+			
 			infoList = new ArrayList<JSONObject>();
 			JSONObject beknoptjObject = new JSONObject();
 			try {
@@ -215,6 +216,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 
 	public void onClick(View v) {
 		Intent i = new Intent(MainActivity.this, SlotenScherm.class);
+		//Het gekozen slot wordt meegegeven aan het volgende scherm
 		i.putExtra("naam", slotNaam.toString());
 		startActivity(i);
 	}

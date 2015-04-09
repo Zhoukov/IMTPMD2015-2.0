@@ -24,7 +24,7 @@ import android.widget.Toast;
 public class AanvraagScherm extends Activity implements OnClickListener {
 
 	TextView gekozen;
-	String gekozenservice;
+	String gekozenslot;
 	EditText naamVeld;
 	EditText emailVeld;
 	EditText telefoonVeld;
@@ -51,13 +51,13 @@ public class AanvraagScherm extends Activity implements OnClickListener {
 		annuleren.setOnClickListener(this);
 
 		Intent aanvraagscherm = getIntent();
-		gekozenservice = aanvraagscherm.getStringExtra("gekozen");
+		gekozenslot = aanvraagscherm.getStringExtra("gekozen");
 		System.out.println(gekozen);
 
 		TextView gekozen = (TextView) findViewById(R.id.textView1);
 		this.gekozen = gekozen;
 		gekozen.setText("U heeft gekozen voor de service "
-				+ gekozenservice
+				+ gekozenslot
 				+ ", gelieve hier uw naam, adres, telefoonnummer en email in te vullen");
 
 		naamVeld = (EditText) findViewById(R.id.naam);
@@ -92,7 +92,7 @@ public class AanvraagScherm extends Activity implements OnClickListener {
 				this.telefoonVeld.getText().toString(),
 				this.emailVeld.getText().toString() };
 		Preferences.getInstance(this).updateCustomerInfoPreferences(newprefs);
-
+		// Zodra er op verzenden geklikt wordt zal Plaatsbestelling uitgevoerd worden.
 		switch (v.getId()) {
 		case R.id.bevestigen:
 			
@@ -109,6 +109,7 @@ public class AanvraagScherm extends Activity implements OnClickListener {
 		}
 	}
 
+	//Er wordt hier een bestelling gemaakt. Alle gegevens worden in een array gezet en deze wordt als JSONArray verstuurd.
 	 private void plaatsBestelling() {
 	        final TextView koperNaam = (TextView) findViewById(R.id.naam);
 	        final TextView koperAdres = (TextView) findViewById(R.id.adres);
@@ -126,7 +127,7 @@ public class AanvraagScherm extends Activity implements OnClickListener {
 	        JSONArray bestelArray = new JSONArray();
 
 	        try {
-	            service.put("slotnaam", gekozenservice.toString());
+	            service.put("slotnaam", gekozenslot.toString());
 	            gegevens.put("kopernaam", naam);
 	            gegevens.put("koperadres", adres);
 	            gegevens.put("kopertelnr", telefoon);
