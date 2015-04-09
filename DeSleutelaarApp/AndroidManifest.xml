@@ -11,7 +11,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/sleutellogo"
-        android:label="@string/app_name"
+        android:label="De Sleutelaar"
         android:theme="@style/AppTheme" >
 
 <!-- Activity Main -->
@@ -46,6 +46,13 @@
             android:name=".AanvraagScherm"
             android:label="@string/app_name" >
         </activity>
-    </application>
 
+    
+ <!-- Connect Activity -->
+
+        <activity
+            android:name=".ConnectScherm"
+            android:label="@string/app_name" >
+        </activity>   
+    </application>
 </manifest>

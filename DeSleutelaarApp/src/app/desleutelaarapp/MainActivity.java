@@ -39,8 +39,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 	static ArrayList<JSONObject> infoList;
 	static MainActivity activity;
 	TextView serviceinfo;
-	EditText ipadres;
-	public static String ip = "94.211.183.172";
+	/*public static*/ String ip; /*= "94.211.183.172";*/
 	public static int port = 4444;
 	public String informatiebeknopt = null;
 	public static String slotNaam;
@@ -52,6 +51,13 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_activity);
 
+		System.out.println("Hoofdscherm gestart");
+		
+//		Intent mainscherm = getIntent();
+//		ip = mainscherm.getStringExtra("ipadres");
+		
+		System.out.println(ip);
+		
 		list = new ArrayList<String>();
 		JSONObject jsonObject = new JSONObject();
 		try {

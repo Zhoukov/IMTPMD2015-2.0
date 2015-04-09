@@ -1,6 +1,6 @@
 package app.desleutelaarapp;
 
-import java.util.concurrent.ExecutionException; 
+import java.util.concurrent.ExecutionException;  
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +25,7 @@ public class SlotenScherm extends Activity implements OnClickListener {
 	TextView titel;
 	TextView info;
 	private String detailInfo;
-	public static String ip = MainActivity.ip;
+	public static String ip = ConnectScherm.ip; /*MainActivity.ip;*/
 	public static int port = MainActivity.port;
 
 	@Override

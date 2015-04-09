@@ -35,7 +35,7 @@ public class AanvraagScherm extends Activity implements OnClickListener {
     private static String email;
 	Button bevestigen;
 	Button annuleren;
-	String ip = MainActivity.ip;
+	String ip = ConnectScherm.ip; /*MainActivity.ip;*/
 	int port = MainActivity.port;
 	String responseFix;
 
